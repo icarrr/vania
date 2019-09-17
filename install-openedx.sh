@@ -15,4 +15,4 @@ wget https://raw.githubusercontent.com/edx/configuration/$OPENEDX_RELEASE/util/i
 wget https://raw.githubusercontent.com/edx/configuration/$OPENEDX_RELEASE/util/install/generate-passwords.sh -O - | bash
 
 # Install Open edX:
-wget https://raw.githubusercontent.com/edx/configuration/$OPENEDX_RELEASE/util/install/native.sh -O - | bash > openedxlog.out
+wget https://raw.githubusercontent.com/edx/configuration/$OPENEDX_RELEASE/util/install/native.sh -O - | bash > openedxlog.out &
