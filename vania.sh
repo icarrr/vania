@@ -8,7 +8,11 @@ options=(
     "Restart LMS"
     "Restart CMS"
     "Restart edxapp_worker"
-		"Install Open edX Insight (Don't run this on your LMS Server)"
+    "Install Open edX Insight (Don't run this on your LMS Server)"
+    "Backup MongoDB Open edX"
+    "Backup MySQL Open edX"
+    "Restore MongoDB Open edX"
+    "Restore MySQL Open edX"
     "Quit"
 )
 PS3="Select your Open edX task (1-8): "
@@ -22,6 +26,10 @@ select option in "${options[@]}"; do
         5) bash restart-cms-openedx.sh ;;
         6) bash restart-edxappworker-openedx.sh ;;
         7) bash install-insights.sh ;;
-				8) break ;;
+        8) bash backup_mongo.sh ;;
+        9) bash backup_mysql.sh ;;
+        10) bash restore_mongo.sh ;;
+        11) bash restore_mysql.sh ;;
+        12) break ;;
     esac
 done
