@@ -10,7 +10,7 @@ ADMIN_PASSWORD=$(cat $file_password | grep MONGO_ADMIN_PASSWORD | head -n 1 | aw
 
 echo "List dump"
 echo "---------"
-ls | awk '{print $1}'
+ls ~/backups/mongodb/ | awk '{print $1}'
 
 read -p 'Enter name backup directory to restore (ex:dump-20190917_120654): ' name_backup
 if [[ $name_backup == '' ]]; then

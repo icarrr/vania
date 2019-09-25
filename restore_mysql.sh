@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "List backups"
 echo "---------"
-ls | awk '{print $1}'
+ls ~/backups/mysql/ | awk '{print $1}'
 
 read -p 'Enter name backup directory to restore (ex:backups-20190917_120654): ' name_backup
 if [[ $name_backup == '' ]]; then
