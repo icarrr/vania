@@ -15,7 +15,7 @@ options=(
     "Restore MySQL Open edX"
     "Quit"
 )
-PS3="Select your Open edX task (1-8): "
+PS3="Select your Open edX task (1-12): "
 
 select option in "${options[@]}"; do
     case "$REPLY" in
