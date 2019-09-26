@@ -7,6 +7,11 @@ export LC_CTYPE="en_US.UTF-8"
 
 read -p 'Enter Open edX Release (ex:open-release/hawthorn.1): ' release
 
+if [[ ! $release ]]; then
+    echo "You must define Open edX release"
+    exit
+fi
+
 export OPENEDX_RELEASE=$release
 # Bootstrap the Ansible installation:
 wget https://raw.githubusercontent.com/edx/configuration/$OPENEDX_RELEASE/util/install/ansible-bootstrap.sh -O - | sudo -H bash
