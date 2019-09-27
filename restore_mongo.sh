@@ -3,7 +3,7 @@ read -p 'Enter location of the password file (ex:/home/user/my-passwords.yml): '
 
 if [[ $file_password == '' ]]; then
     echo "Please add an argument that defines the location of the password file, exiting..."
-    exit
+    export file_password=~/my-passwords.yml
 fi
 
 ADMIN_PASSWORD=$(cat $file_password | grep MONGO_ADMIN_PASSWORD | head -n 1 | awk '{print $2}')

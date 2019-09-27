@@ -4,7 +4,7 @@ read -p 'Enter location of the password file (ex:/home/user/my-passwords.yml): '
 
 if [[ $file_password == '' ]]; then
     echo "Please add an argument that defines the location of the password file, exiting..."
-    exit
+    export file_password=~/my-passwords.yml
 fi
 
 echo "Create directory backups/mongodb"
