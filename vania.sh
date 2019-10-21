@@ -13,6 +13,8 @@ options=(
     "Backup MySQL Open edX"
     "Restore MongoDB Open edX"
     "Restore MySQL Open edX"
+    "Backup LMS and CMS Conf"
+    "Restore LMS and CMS Conf"
     "Quit"
 )
 PS3="Select your Open edX task (1-12): "
@@ -30,6 +32,8 @@ select option in "${options[@]}"; do
         9) bash backup_mysql.sh ;;
         10) bash restore_mongo.sh ;;
         11) bash restore_mysql.sh ;;
-        12) break ;;
+        12) bash backup_conf-edx.sh ;;
+        13) bash restore_conf-edx.sh ;;
+        14) break ;;
     esac
 done
