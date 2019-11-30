@@ -16,9 +16,10 @@ options=(
     "Restore MySQL Open edX"
     "Backup LMS and CMS Conf"
     "Restore LMS and CMS Conf"
+    "Generate url Installation Open edX by icarrr"
     "Quit"
 )
-PS3="Select your Open edX task (1-15): "
+PS3="Select your Open edX task (1-16): "
 
 select option in "${options[@]}"; do
     case "$REPLY" in
@@ -36,6 +37,7 @@ select option in "${options[@]}"; do
         12) bash restore_mysql.sh ;;
         13) bash backup_conf-edx.sh ;;
         14) bash restore_conf-edx.sh ;;
-        15) break ;;
+        15) bash generate-url-installation-openedx.sh ;;
+        16) break ;;
     esac
 done
