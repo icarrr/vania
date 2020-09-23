@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 read -p 'Enter location of the password file (ex:/home/user/my-passwords.yml): ' file_password
 
@@ -18,5 +19,7 @@ echo "Dump MongoDB"
 sleep 1
 
 echo "mongodump --out ~/backups/mongodb/dump-$localTime -u 'admin' -p $ADMIN_PASSWORD --authenticationDatabase admin" | bash
+tar --lzma -C ~/backups/mongodb/ -cvpf ~/backups/mongodb/dump-$localTime.tar.lzma dump-$localTime
+rm -rf ~/backups/mongodb/dump-$localTime
 
 echo "DONE"

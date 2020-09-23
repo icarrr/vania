@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 echo "List backups"
 echo "---------"
 ls ~/backups/conf/ | awk '{print $1}'
@@ -9,6 +11,12 @@ if [[ $name_backup == '' ]]; then
   exit
 fi
 
-sudo cp -f ~/backups/conf/$name_backup/* /edx/app/edxapp/
+mkdir ~/extract-vania
+tar -xvf ~/backups/conf/$name_backup --directory ~/extract-vania
+
+sudo cp -f ~/extract-vania/$name_backup/* /edx/app/edxapp/
+sudo chown edxapp:www-data /edx/app/edxapp/{l,c}ms.{auth,env}.json
+
+rm -rf ~/extract-vania
 
 echo "DONE"

@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 read -p 'Enter location of the password file (ex:/home/user/my-passwords.yml): ' file_password
 
 if [[ $file_password == '' ]]; then
@@ -17,6 +19,9 @@ if [[ $name_backup == '' ]]; then
 	echo "Please enter name backup directory to restore, exiting..."
 	exit
 fi
+
+mkdir ~/extract-vania
+tar -xvf ~/backups/mongodb/$name_backup --directory ~/extract-vania
 
 echo "The following is a list of databases in MongoDB"
 echo "-----------------------------------------------"
@@ -47,7 +52,7 @@ echo ''
 echo ''
 
 echo "Restore MongoDB dump file"
-echo "mongorestore ~/backups/mongodb/$name_backup -u 'admin' -p $ADMIN_PASSWORD --authenticationDatabase 'admin'" | bash
+echo "mongorestore ~/extract-vania/mongodb/$name_backup -u 'admin' -p $ADMIN_PASSWORD --authenticationDatabase 'admin'" | bash
 echo ''
 echo ''
 sleep 1
@@ -57,3 +62,5 @@ echo "-----------------------------------------------"
 echo "echo 'show dbs' | mongo --quiet -u 'admin' -p $ADMIN_PASSWORD --authenticationDatabase 'admin'" | bash
 
 echo "DONE"
+
+rm -rf ~/extract-vania
