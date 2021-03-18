@@ -10,8 +10,8 @@ mkdir -p ~/backups/conf/backups-$localTime
 
 sudo cp /edx/app/edxapp/*json ~/backups/conf/backups-$localTime
 
-sudo chown ubuntu ~/backups/conf/backups-$localTime -r
-tar --lzma -C ~/backups/conf -cvpf ~/backups/conf/backups-$localTime.tar.lzma ~/backups/conf/backups-$localTime
+sudo chown `whoami` ~/backups/conf/backups-$localTime -R
+tar -C ~/backups/conf -cvpf ~/backups/conf/backups-$localTime.tgz backups-$localTime
 rm -rf ~/backups/conf/backups-$localTime
 
 echo "DONE"

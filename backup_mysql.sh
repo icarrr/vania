@@ -11,7 +11,7 @@ mkdir -p ~/backups/mysql/backups-$localTime
 echo "Dump database"
 mysqldump -u root --databases edxapp > ~/backups/mysql/backups-$localTime/edxapp_backup.sql
 mysqldump -u root --databases edxapp_csmh > ~/backups/mysql/backups-$localTime/edxapp_csmh_backup.sql
-tar --lzma -C ~/backups/mysql/ -cvpf ~/backups/mysql/backups-$localTime.tar.lzma backups-$localTime
+tar -C ~/backups/mysql/ -cvpf ~/backups/mysql/backups-$localTime.tgz backups-$localTime
 rm -rf ~/backups/mysql/backups-$localTime
 
 echo "DONE"
